@@ -28,6 +28,11 @@ sorry, I still can't image a simple way to internationalize the script :)
 
     docker run -it --rm -e FRESHDESK_DOMAIN=yourdomain -e FRESHDESK_API_KEY=********* registry.gitlab.com/opencontent/freshdesk
 
-We use a task in AWS Fargate to execute periodically the script, but you can use whatever setup you prefer.
+We use a task in AWS Fargate to execute periodically the script, but you can use whatever option you prefer.
+
+## Other configuration options
+
+* Set environment variable TRACE=1 to enable debug mode of bash scripts
+
 
 

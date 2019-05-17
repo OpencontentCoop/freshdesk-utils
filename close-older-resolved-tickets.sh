@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+[[ $TRACE == 1 ]] && set -x
 
 # ------------------------------------------------------------
 # Copyright 2017 Opencontent scarl.
