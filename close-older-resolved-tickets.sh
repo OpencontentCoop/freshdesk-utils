@@ -142,7 +142,7 @@ else
 fi
 
 if [[ ${#ticketsMissingType[@]} -gt 0 ]]; then
-	summary="$summary\n\nCi sarebbero i seguenti ticket che potrei chiudere ma gli manca una categoria, ci riguardo più tardi:"
+	summary="$summary\n\nCi sarebbero i seguenti ticket che potrei chiudere ma gli manca una categoria, se la aggiungete, io ci riguardo più tardi e magari chiudo anche quelli:"
 	for index in "${!ticketsMissingType[@]}"; do
 		link=$(fd::ticket::get_link $index)
 		summary="$summary\n* <$link|#$index> _${ticketsMissingType[$index]}_"
@@ -150,9 +150,9 @@ if [[ ${#ticketsMissingType[@]} -gt 0 ]]; then
 fi
 
 if [[ -n $slackChannel ]]; then
-	echo -e $summary | slacktee --plain-text --no-output --channel $slackChannel
+	echo -e "$summary" | slacktee --plain-text --no-output --channel $slackChannel
 else
-	echo -e $summary
+	echo -e "$summary"
 fi
 
 echo "Finished!"
