@@ -1,8 +1,8 @@
 FROM alpine
 
-RUN apk add --no-cache bash jq httpie
+RUN apk add --no-cache bash jq httpie coreutils curl
 
-RUN http get https://github.com/coursehero/slacktee/raw/master/slacktee.sh > /usr/local/bin/slacktee \
+RUN http get https://raw.githubusercontent.com/coursehero/slacktee/master/slacktee.sh > /usr/local/bin/slacktee \
     && chmod +x /usr/local/bin/slacktee
 
 COPY slacktee.conf ~/.slacktee
