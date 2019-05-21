@@ -37,6 +37,14 @@ slackChannel=${SLACK_CHANNEL:=freshdesk}
 
 if [[ -n $SLACK_WEBHOOK ]]; then
 	echo "webhook_url=$SLACK_WEBHOOK" >> ~/.slacktee
+else
+	echo "Error, missing Slack configuration, please set environment variable SLACK_WEBHOOK"
+	exit 1
+fi
+
+if [[ -z $SLACK_CHANNEL ]]; then
+	echo "Error, missing Slack channel configuration, please set environment variable SLACK_CHANNEL"
+	exit 1
 fi
 
 fd::ticket::get_link()
@@ -74,7 +82,7 @@ while true; do
 	for row in $(echo $tickets | jq -r '.[] | @base64'); do
 		# the following function get the single field from the json row
 		_jq() {
-			echo ${row} | base64 --decode | jq -r ${1}
+			echo ${row} | base64 -d | jq -r ${1}
 		}
 		id=$(_jq '.id')
 		updated_at=$(_jq '.updated_at')
