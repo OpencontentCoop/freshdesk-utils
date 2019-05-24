@@ -1,0 +1,14 @@
+{
+    "name": "opencontent/freshdesk-autoclose",
+    "description": "Script that close resolved tickets automatically after a certain amount of time",
+    "type": "project",
+    "require": {
+        "mpclarkson/freshdesk-php-sdk": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Lorello",
+            "email": "lorenzo.salvadorini@opencontent.it"
+        }
+    ]
+}
