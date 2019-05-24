@@ -1,5 +1,7 @@
 # FreshDesk Maintenance
 
+![Pipeline status](https://gitlab.com/opencontent/freshdesk-utils/badges/master/pipeline.svg)
+
 This script closes tickets in state Resolved after 30 days without changes
 
 In our freshdesk the field status is required for a ticket to be closed, so
